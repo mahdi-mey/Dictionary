@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './App.css';
+
 import { AiTwotoneSound } from "react-icons/ai";
+import { VscSearch } from "react-icons/vsc";
 
 function App() {
   const [inputValue, setInputValue] = useState('')
@@ -23,7 +25,10 @@ function App() {
     <div className="container">
       <div className="input-container">
         <input type="text" name="" id="wordInp" placeholder="Enter A Word" spellCheck="false" autoFocus onChange={handelChange} />
-        <button className="submitBtn" type="button" onClick={searchWord} >Serach</button>
+        <div className='button-and-icon'>
+          <button className="submitBtn" type="button" onClick={searchWord} >Serach</button>
+          <VscSearch className='search-icon' />
+        </div>
       </div>
 
       {wordInfo && <div className='main'>

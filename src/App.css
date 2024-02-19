@@ -38,23 +38,58 @@ body {
   color: var(--color1);
 }
 
-.submitBtn {
-  padding: 5px 17px;
-  border-radius: var(--main-raius);
-  border: none;
-  outline: none;
-  cursor: pointer;
-
+.button-and-icon {
+  width: 90px;
+  padding: 5px 12px;
   position: absolute;
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
+  border-radius: calc(var(--main-raius) - 2px);
+  background-color: var(--color1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  border: 1px solid var(--dark-blue);
+  transition: all0.5s ease-in-out;
+}
+
+.submitBtn {
+  color: var(--dark-blue);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
   transition: all 0.5s ease;
 }
-.submitBtn:hover {
-  color: #fff;
-  background: linear-gradient(112deg, #4e1f53 0%, #272f50 100%);
+
+.search-icon {
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: all 0.5s ease;
+  font-size: 0.9em;
 }
+
+.button-and-icon:hover .search-icon {
+  opacity: 1;
+}
+
+.button-and-icon:hover .submitBtn {
+  transform: translateX(-9px);
+  color: var(--color1);
+}
+
+.button-and-icon:hover {
+  background-color: var(--dark-blue);
+}
+
 /* or h1 tag */
 .selfWord {
   color: var(--color1);
@@ -74,8 +109,8 @@ body {
   cursor: pointer;
 }
 
-.play-audio:hover {
-}
+/*! .play-audio:hover {
+} */
 
 .pointer {
   cursor: pointer;
