@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import { AiTwotoneSound } from "react-icons/ai";
 
 function App() {
   const [inputValue, setInputValue] = useState('')
@@ -11,6 +12,7 @@ function App() {
   async function searchWord() {
     if (!inputValue) return
     console.log('inside fetch function')
+    setWordInfo(null)
     const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${inputValue}`)
     const data = await response.json()
     console.log(data)
@@ -28,8 +30,8 @@ function App() {
         <div className='information'>
           <h1 className="selfWord">{wordInfo[0].word}</h1>
           <div className="info">
-            <span className="span pron phonetic">{wordInfo[0].phonetics[1].text }</span>
-            <ion-icon name="volume-high-outline" className="audio pointer audio-icon"></ion-icon>
+            <span className="pronunciation">{wordInfo[0].phonetics[1].text}</span>
+            <AiTwotoneSound className='play-audio' />
             <audio src={wordInfo[0].phonetics[0].audio} id="audio"></audio>
           </div>
         </div>

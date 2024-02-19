@@ -55,3 +55,33 @@ body {
   color: #fff;
   background: linear-gradient(112deg, #4e1f53 0%, #272f50 100%);
 }
+/* or h1 tag */
+.selfWord {
+  color: var(--color1);
+  margin: var(--m-block);
+}
+
+/* pronunciation and read icon */
+.info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color1);
+}
+
+.play-audio {
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.play-audio:hover {
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.selected {
+  color: var(--color1);
+  background-color: var(--color2);
+}
