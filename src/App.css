@@ -18,35 +18,40 @@ body {
   position: relative;
 }
 .input-container {
-    position: relative;
-    padding: 10px;
-    background-color: #ffffff13;
-    border-radius: var(--main-raius);
+  position: relative;
+  padding: 10px;
+  background-color: #ffffff13;
+  border-radius: var(--main-raius);
 }
 
 #wordInp {
-    width: 100%;
-    background-color: transparent;
-    color: var(--color1);
-    outline: 0;
-    border: 0;
-    font-size: 1.3rem;
-    text-transform: initial;
+  width: 100%;
+  background-color: transparent;
+  color: var(--color1);
+  outline: 0;
+  border: 0;
+  font-size: 1.3rem;
+  text-transform: initial;
 }
 
 #wordInp::placeholder {
-    color: var(--color1);
+  color: var(--color1);
 }
 
 .submitBtn {
-    padding: 5px 17px;
-    border-radius: var(--main-raius);
-    border: none;
-    outline: none;
-    cursor: pointer;
+  padding: 5px 17px;
+  border-radius: var(--main-raius);
+  border: none;
+  outline: none;
+  cursor: pointer;
 
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  transition: all 0.5s ease;
+}
+.submitBtn:hover {
+  color: #fff;
+  background: linear-gradient(112deg, #4e1f53 0%, #272f50 100%);
 }
