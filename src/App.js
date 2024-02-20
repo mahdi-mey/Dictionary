@@ -1,8 +1,8 @@
-import { useRef, useState, useEffect } from 'react';
-import './App.css';
+import { useRef, useState, useEffect } from 'react'
+import './App.css'
 
-import { AiTwotoneSound } from "react-icons/ai";
-import { VscSearch } from "react-icons/vsc";
+import { AiTwotoneSound } from "react-icons/ai"
+import { VscSearch } from "react-icons/vsc"
 
 function App() {
   const [inputValue, setInputValue] = useState('')
@@ -14,8 +14,8 @@ function App() {
   }
 
   async function searchWord() {
-    if (!inputValue) return
     console.log('inside fetch function')
+    if (!inputValue) return
     setWordInfo(null)
     const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${inputValue}`)
     const data = await response.json()
@@ -28,6 +28,13 @@ function App() {
       audioRef.current.play()
     }
   }
+
+  useEffect(() => {
+    console.log('useEffect executed')
+    if (wordInfo) {
+      audioRef.current = document.getElementById('audio')
+    }
+  }, [wordInfo])
 
   return (
     <div className="container">
