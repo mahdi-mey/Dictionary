@@ -13,7 +13,9 @@ function App() {
     setInputValue(event.target.value)
   }
 
-  async function searchWord() {
+  async function searchWord(e) {
+    // console.log(e)
+    e.preventDefault()
     console.log('inside fetch function')
     if (!inputValue) return
     setWordInfo(null)
@@ -38,13 +40,13 @@ function App() {
 
   return (
     <div className="container">
-      <div className="input-container">
-        <input type="text" name="" id="wordInp" placeholder="Enter A Word" spellCheck="false" autoFocus onChange={handelChange} />
+      <form className="input-container" onSubmit={searchWord}>
+        <input type="text" autoComplete="off" id="wordInp" placeholder="Enter A Word" spellCheck="false" autoFocus onChange={handelChange} />
         <div className='button-and-icon'>
-          <button className="submitBtn" type="button" onClick={searchWord} >Serach</button>
+          <button className="submitBtn" type="submit">Serach</button>
           <VscSearch className='search-icon' />
         </div>
-      </div>
+      </form>
 
       {wordInfo && <div className='main'>
         <div className='information'>
