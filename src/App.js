@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import './App.css';
 
 import { AiTwotoneSound } from "react-icons/ai";
@@ -7,6 +7,8 @@ import { VscSearch } from "react-icons/vsc";
 function App() {
   const [inputValue, setInputValue] = useState('')
   const [wordInfo, setWordInfo] = useState(null)
+  const audioRef = useRef(null)
+
   function handelChange(event) {
     setInputValue(event.target.value)
   }
@@ -19,6 +21,12 @@ function App() {
     const data = await response.json()
     console.log(data)
     setWordInfo(data)
+  }
+
+  function playAudio() {
+    if (audioRef.current) {
+      audioRef.current.play()
+    }
   }
 
   return (
@@ -36,8 +44,8 @@ function App() {
           <h1 className="selfWord">{wordInfo[0].word}</h1>
           <div className="info">
             <span className="pronunciation">{wordInfo[0].phonetics[1].text}</span>
-            <AiTwotoneSound className='play-audio' />
-            <audio src={wordInfo[0].phonetics[0].audio} id="audio"></audio>
+            <AiTwotoneSound className='play-audio' onClick={playAudio} />
+            <audio src={wordInfo[0].phonetics[0].audio} id="audio" onClick={playAudio} ref={audioRef}></audio>
           </div>
         </div>
       </div>}
