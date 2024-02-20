@@ -8,6 +8,8 @@ import { VscSearch } from "react-icons/vsc"
 export default function Dictionary() {
     const [inputValue, setInputValue] = useState('')
     const [wordInfo, setWordInfo] = useState(null)
+    const [isLoading, setIsLoading] = useState(false)
+
     const audioRef = useRef(null)
 
     function handelChange(event) {
@@ -15,15 +17,28 @@ export default function Dictionary() {
     }
 
     async function searchWord(e) {
-        // console.log(e)
         e.preventDefault()
         console.log('inside fetch function')
         if (!inputValue) return
-        setWordInfo(null)
-        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${inputValue}`)
-        const data = await response.json()
-        console.log(data)
-        setWordInfo(data)
+
+        try {
+            setIsLoading(true)
+            const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${inputValue}`)
+            if (response.status === 200) {
+                const data = await response.json()
+                setWordInfo(data)
+                console.log(data)
+            }
+            else {
+                console.warn('weird error', response.err)
+            }
+        }
+        catch (err) {
+            console.log('catch block', err)
+        }
+        finally {
+            setIsLoading(false)
+        }
     }
 
     function playAudio() {
@@ -44,7 +59,7 @@ export default function Dictionary() {
         <div className="container">
             <form className="input-container" onSubmit={searchWord}>
                 <input type="text" autoComplete="off" id="wordInp" placeholder="Enter A Word" spellCheck="false" autoFocus onChange={handelChange} />
-                <div className='button-and-icon'>
+                <div className='button-and-icon' disabled={isLoading}>
                     <button className="submitBtn" type="submit">Serach</button>
                     <VscSearch className='search-icon' />
                 </div>
