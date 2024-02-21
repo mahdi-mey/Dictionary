@@ -1,9 +1,8 @@
 import { useRef, useState, useEffect } from 'react'
-import '../App.css'
+import '../components/Dictionary.css'
 
 import Audio from './Audio'
 
-import { AiTwotoneSound } from "react-icons/ai"
 import { VscSearch } from "react-icons/vsc"
 
 
@@ -43,18 +42,6 @@ export default function Dictionary() {
         }
     }
 
-    function playAudio() {
-        if (audioRef.current) {
-            audioRef.current.play()
-        }
-    }
-
-    function getAudioSource(phoneticsList) {
-        // Find the first phonetic object with a non-empty audio field
-        const validAudio = phoneticsList.find(phonetic => phonetic.audio && phonetic.audio.trim() !== '');
-        return validAudio ? validAudio.audio : ''; // Return the audio source or an empty string if none found
-    }
-
     useEffect(() => {
         // console.log('useEffect executed')
         if (wordInfo) {
@@ -81,8 +68,6 @@ export default function Dictionary() {
                                 <h1 className="selfWord">{wordInfo[0].word}</h1>
                                 <div className="info">
                                     <span className="pronunciation">{wordInfo[0].phonetic || wordInfo[0].phonetics[1].text}</span>
-                                    {/* <AiTwotoneSound className='play-audio' onClick={playAudio} />
-                                    <audio src={getAudioSource(wordInfo[0].phonetics)} controls></audio> */}
                                     <Audio phonetic={wordInfo[0].phonetics} />
                                 </div>
                             </div>

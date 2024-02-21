@@ -1,0 +1,8 @@
+.play-audio {
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.play-audio:hover {
+  color: var(--dark-blue);
+}

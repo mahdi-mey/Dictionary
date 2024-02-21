@@ -1,0 +1,123 @@
+.container {
+  width: clamp(300px, 50%, 60%);
+
+  background: rgba(255, 248, 248, 0.14);
+  border-radius: var(--main-raius);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(5px);
+
+  padding: 20px;
+  position: relative;
+}
+.input-container {
+  position: relative;
+  padding: 10px;
+  background-color: #ffffff13;
+  border-radius: var(--main-raius);
+}
+
+#wordInp {
+  width: 100%;
+  background-color: transparent;
+  color: var(--color1);
+  outline: 0;
+  border: 0;
+  font-size: 1.3rem;
+  text-transform: initial;
+}
+
+#wordInp::placeholder {
+  color: var(--color1);
+}
+
+.button-and-icon {
+  width: 90px;
+  padding: 5px 12px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  border-radius: calc(var(--main-raius) - 2px);
+  background-color: var(--color1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  border: 1px solid var(--dark-blue);
+  transition: all0.5s ease-in-out;
+}
+
+.button-and-icon[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.submitBtn {
+  color: var(--dark-blue);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  transition: all 0.5s ease;
+}
+
+.search-icon {
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: all 0.5s ease;
+  font-size: 0.9em;
+}
+
+.button-and-icon:hover .search-icon {
+  opacity: 1;
+}
+
+.button-and-icon:hover .submitBtn {
+  transform: translateX(-9px);
+  color: var(--color1);
+}
+
+.button-and-icon:hover {
+  background-color: var(--dark-blue);
+}
+
+/* or h1 tag */
+.selfWord {
+  color: var(--color1);
+  margin: var(--m-block);
+}
+
+/* pronunciation and read icon */
+.info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color1);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.selected {
+  color: var(--color1);
+  background-color: var(--color2);
+}
+
+.definitions {
+  color: var(--color1);
+  margin: var(--m-block);
+}
+
+.h4 {
+  color: var(--color3);
+  font-weight: 560;
+  margin-block: 1rem;
+}
