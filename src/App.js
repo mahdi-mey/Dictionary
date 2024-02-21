@@ -1,4 +1,4 @@
-import Dictionary from "./Dictionary"
+import Dictionary from "./components/Dictionary"
 
 function App() {
 

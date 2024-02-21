@@ -125,3 +125,14 @@ body {
   color: var(--color1);
   background-color: var(--color2);
 }
+
+.definitions {
+  color: var(--color1);
+  margin: var(--m-block);
+}
+
+.h4 {
+  color: var(--color3);
+  font-weight: 560;
+  margin-block: 1rem;
+}

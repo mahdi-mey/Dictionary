@@ -1,5 +1,7 @@
 import { useRef, useState, useEffect } from 'react'
-import './App.css'
+import '../App.css'
+
+import Audio from './Audio'
 
 import { AiTwotoneSound } from "react-icons/ai"
 import { VscSearch } from "react-icons/vsc"
@@ -47,8 +49,14 @@ export default function Dictionary() {
         }
     }
 
+    function getAudioSource(phoneticsList) {
+        // Find the first phonetic object with a non-empty audio field
+        const validAudio = phoneticsList.find(phonetic => phonetic.audio && phonetic.audio.trim() !== '');
+        return validAudio ? validAudio.audio : ''; // Return the audio source or an empty string if none found
+    }
+
     useEffect(() => {
-        console.log('useEffect executed')
+        // console.log('useEffect executed')
         if (wordInfo) {
             audioRef.current = document.getElementById('audio')
         }
@@ -65,16 +73,27 @@ export default function Dictionary() {
                 </div>
             </form>
 
-            {wordInfo && <div className='main'>
-                <div className='information'>
-                    <h1 className="selfWord">{wordInfo[0].word}</h1>
-                    <div className="info">
-                        <span className="pronunciation">{wordInfo[0].phonetics[1].text}</span>
-                        <AiTwotoneSound className='play-audio' onClick={playAudio} />
-                        <audio src={wordInfo[0].phonetics[0].audio} id="audio" onClick={playAudio} ref={audioRef}></audio>
-                    </div>
-                </div>
-            </div>}
+            {
+                wordInfo && (
+                    <>
+                        <div className='main'>
+                            <div className='information'>
+                                <h1 className="selfWord">{wordInfo[0].word}</h1>
+                                <div className="info">
+                                    <span className="pronunciation">{wordInfo[0].phonetic || wordInfo[0].phonetics[1].text}</span>
+                                    {/* <AiTwotoneSound className='play-audio' onClick={playAudio} />
+                                    <audio src={getAudioSource(wordInfo[0].phonetics)} controls></audio> */}
+                                    <Audio phonetic={wordInfo[0].phonetics} />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="definitions">
+                            <h4 className="h4">definitions</h4>
+                            <span className="span">{wordInfo[0].meanings[0].definitions[0].definition}</span>
+                        </div>
+                    </>
+                )
+            }
 
         </div>
     )
