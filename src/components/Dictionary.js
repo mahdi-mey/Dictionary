@@ -7,6 +7,7 @@ import { VscSearch } from "react-icons/vsc"
 
 
 export default function Dictionary() {
+    console.log('dictionary component ran')
     const [inputValue, setInputValue] = useState('')
     const [wordInfo, setWordInfo] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
@@ -43,7 +44,6 @@ export default function Dictionary() {
     }
 
     useEffect(() => {
-        // console.log('useEffect executed')
         if (wordInfo) {
             audioRef.current = document.getElementById('audio')
         }
