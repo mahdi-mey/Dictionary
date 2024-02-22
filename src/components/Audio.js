@@ -1,14 +1,15 @@
 import { AiTwotoneSound } from "react-icons/ai";
-import React from 'react';
+import React, { useRef } from 'react';
 import '../components/Audio.css';
 
 export default function Audio({ phonetic }) {
-    console.log('Audio component ran')
+    console.log('Audio component ran');
+
+    const audioRef = useRef(null);
 
     function playAudio(audioSrc) {
-        const audioElement = document.createElement('audio')
-        audioElement.setAttribute('src', audioSrc)
-        audioElement.play()
+        audioRef.current.src = audioSrc;
+        audioRef.current.play();
     }
 
     const filteredAudio = phonetic
@@ -22,6 +23,7 @@ export default function Audio({ phonetic }) {
                     <AiTwotoneSound className='play-audio' onClick={() => playAudio(audioSrc)} />
                 </div>
             ))}
+            <audio ref={audioRef}></audio>
         </>
-    )
+    );
 }
