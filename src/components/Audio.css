@@ -4,5 +4,5 @@
   transition: all 0.2s ease-in-out;
 }
 .play-audio:hover {
-  color: var(--dark-blue);
+  color: var(--color2);
 }

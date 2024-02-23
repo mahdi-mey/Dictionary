@@ -24,12 +24,39 @@ body {
   background: rgb(55, 48, 107);
   background: linear-gradient(112deg, #4e1f53 0%, #272f50 100%);
   color: white;
+
+  background-image: repeating-linear-gradient(
+      328deg,
+      rgb(0, 0, 0) 0px,
+      rgb(0, 0, 0) 31px,
+      transparent 31px,
+      transparent 35px
+    ),
+    repeating-linear-gradient(
+      473deg,
+      rgb(0, 0, 0) 0px,
+      rgb(0, 0, 0) 31px,
+      transparent 31px,
+      transparent 35px
+    ),
+    repeating-linear-gradient(
+      448deg,
+      rgb(0, 0, 0) 0px,
+      rgb(0, 0, 0) 31px,
+      transparent 31px,
+      transparent 35px
+    ),
+    repeating-linear-gradient(
+      238deg,
+      rgb(0, 0, 0) 0px,
+      rgb(0, 0, 0) 31px,
+      transparent 31px,
+      transparent 35px
+    ),
+    linear-gradient(270deg, rgb(128, 200, 80), rgb(0, 0, 255));
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
 #root {
   outline: 1px solid red;
   position: absolute;
