@@ -4,6 +4,7 @@ import '../components/Dictionary.css'
 import Audio from './Audio'
 
 import { VscSearch } from "react-icons/vsc"
+import Meanings from './Meanings'
 
 
 export default function Dictionary() {
@@ -72,11 +73,17 @@ export default function Dictionary() {
                                 </div>
                             </div>
                         </div>
-                        <div className="definitions">
+                        {/* <div className="definitions">
                             <h4 className="h4">definitions</h4>
                             <span className="span">{wordInfo[0].meanings[0].definitions[0].definition}</span>
-                        </div>
+                        </div> */}
                     </>
+                )
+            }
+
+            {
+                wordInfo && (
+                    <Meanings meanings={wordInfo[0].meanings} />
                 )
             }
 
