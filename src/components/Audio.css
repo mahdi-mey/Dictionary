@@ -1,8 +1,20 @@
 .play-audio {
+  color: #d9d9d9;
+  /* accent-color: red; */
   font-size: 1.6rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 .play-audio:hover {
+  color: var(--color2);
+}
+.play-audio-parent {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  border: 0;
+}
+.play-audio-parent:focus .play-audio {
   color: var(--color2);
 }

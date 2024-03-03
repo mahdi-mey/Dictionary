@@ -1,15 +1,15 @@
-import { AiTwotoneSound } from "react-icons/ai";
-import React, { useRef } from 'react';
-import '../components/Audio.css';
+import { AiTwotoneSound } from "react-icons/ai"
+import React, { useRef } from 'react'
+import '../components/Audio.css'
 
 export default function Audio({ phonetic }) {
-    console.log('Audio component ran');
+    console.log('Audio component ran')
 
-    const audioRef = useRef(null);
+    const audioRef = useRef(null)
 
     function playAudio(audioSrc) {
-        audioRef.current.src = audioSrc;
-        audioRef.current.play();
+        audioRef.current.src = audioSrc
+        audioRef.current.play()
     }
 
     const filteredAudio = phonetic
@@ -20,10 +20,12 @@ export default function Audio({ phonetic }) {
         <>
             {filteredAudio.map((audioSrc, index) => (
                 <div key={index}>
-                    <AiTwotoneSound className='play-audio' onClick={() => playAudio(audioSrc)} />
+                    <button className="play-audio-parent" onClick={() => playAudio(audioSrc)} >
+                        <AiTwotoneSound className='play-audio' />
+                    </button>
                 </div>
             ))}
             <audio ref={audioRef}></audio>
         </>
-    );
+    )
 }
