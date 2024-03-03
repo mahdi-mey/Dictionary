@@ -11,10 +11,17 @@
   border: none;
   padding: 0.25rem 0.4rem;
   border-radius: 0.7rem;
+  transition: all 0.1s ease;
 }
 
-.tab-button:focus {
+.tab-button:focus,
+.tab-button:hover {
   outline: 1px solid var(--color2);
+}
+
+.active {
+  background-color: var(--color2);
+  color: var(--color1);
 }
 
 .tab-item {
