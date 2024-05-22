@@ -3,6 +3,7 @@ import '../components/Dictionary.css'
 
 import { VscSearch } from "react-icons/vsc"
 import Meanings from './Meanings'
+import Loader from './Loader'
 import WordDetails from './WordDetails'
 
 export default function Dictionary() {
@@ -58,10 +59,10 @@ export default function Dictionary() {
                 </div>
             </form>
 
-
+            {isLoading && <Loader />}
 
             {
-                wordInfo && <>
+                wordInfo && !isLoading && <>
                     <WordDetails wordInfo={wordInfo} />
                     <Meanings meanings={wordInfo[0].meanings} />
                 </>
