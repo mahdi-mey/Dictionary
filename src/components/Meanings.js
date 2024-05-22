@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './Meanings.css'
 
 export default function Meanings({ meanings }) {
-    const [activeTab, setActiveTab] = useState(1)
+    const [activeTab, setActiveTab] = useState(0)
 
     function changeTab(i) {
         setActiveTab(i)
@@ -22,7 +22,7 @@ export default function Meanings({ meanings }) {
             <div className='meanings-container'>
                 {meanings.map((item, index) => {
                     if (index === activeTab) {
-                        return <div className='tab-content'>
+                        return <div className='tab-content' key={index}>
                             {item.definitions[0].definition}
                         </div>
                     }
