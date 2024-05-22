@@ -1,13 +1,12 @@
 /* meanings-container is parent of tab-container */
 .meanings-container {
-  display: flex;
   gap: 0.5rem;
 }
 
 .button-container {
   display: flex;
-  justify-content: center;
-  /* outline: 1px solid red; */
+  justify-content: baseline;
+  gap: 1rem;
 }
 
 .tab-button {

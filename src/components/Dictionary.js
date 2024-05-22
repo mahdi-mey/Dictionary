@@ -73,10 +73,6 @@ export default function Dictionary() {
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="definitions">
-                            <h4 className="h4">definitions</h4>
-                            <span className="span">{wordInfo[0].meanings[0].definitions[0].definition}</span>
-                        </div> */}
                     </>
                 )
             }
