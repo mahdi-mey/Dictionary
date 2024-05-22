@@ -1,0 +1,10 @@
+.selfWord {
+  color: var(--color1);
+  margin: var(--m-block);
+}
+.info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color1);
+}

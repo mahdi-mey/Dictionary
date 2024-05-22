@@ -1,14 +1,11 @@
 import { useRef, useState, useEffect } from 'react'
 import '../components/Dictionary.css'
 
-import Audio from './Audio'
-
 import { VscSearch } from "react-icons/vsc"
 import Meanings from './Meanings'
-
+import WordDetails from './WordDetails'
 
 export default function Dictionary() {
-    console.log('dictionary component ran')
     const [inputValue, setInputValue] = useState('')
     const [wordInfo, setWordInfo] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
@@ -30,10 +27,11 @@ export default function Dictionary() {
             if (response.status === 200) {
                 const data = await response.json()
                 setWordInfo(data)
+                setInputValue('')
                 console.log(data)
             }
             else {
-                console.warn('weird error', response.err)
+                console.warn('some error happened', response.err)
             }
         }
         catch (err) {
@@ -50,7 +48,6 @@ export default function Dictionary() {
         }
     }, [wordInfo])
 
-
     return (
         <div className="container">
             <form className="input-container" onSubmit={searchWord}>
@@ -61,28 +58,14 @@ export default function Dictionary() {
                 </div>
             </form>
 
-            {
-                wordInfo && (
-                    <>
-                        <div className='main'>
-                            <div className='information'>
-                                <h1 className="selfWord">{wordInfo[0].word}</h1>
-                                <div className="info">
-                                    <span className="pronunciation">{wordInfo[0].phonetic || wordInfo[0].phonetics[1].text}</span>
-                                    <Audio phonetic={wordInfo[0].phonetics} />
-                                </div>
-                            </div>
-                        </div>
-                    </>
-                )
-            }
+
 
             {
-                wordInfo && (
+                wordInfo && <>
+                    <WordDetails wordInfo={wordInfo} />
                     <Meanings meanings={wordInfo[0].meanings} />
-                )
+                </>
             }
-
         </div>
     )
 }
