@@ -2,24 +2,35 @@ import { useState } from 'react'
 import './Meanings.css'
 
 export default function Meanings({ meanings }) {
-    const [openTab, setOpenTab] = useState(1)
-    console.log(meanings[openTab].definitions[0].definition)
+    const [activeTab, setActiveTab] = useState(1)
+    console.log(meanings[activeTab].definitions[0].definition)
+
+    function changeTab() {
+
+    }
 
     return (
-        <div style={{ display: 'flex', gap: '0.5rem' }}>
+        <div className='meanings-container'>
+            
             {
                 meanings.map((item, index) => {
-                    return (
-                        <div key={index}>
-                            <button className={`tab-button ${index === 0 ? 'active' : ''}`}>
+                    return <div key={index}>
+                        {index === activeTab && <div className='tab-content'>
+                            {item.definitions[0].definition}
+                        </div>}
+                    </div>
+                })
+            }
+
+            {
+                meanings.map((item, index) => {
+                    return <div key={index}>
+                        <div className='button-container'>
+                            <button className={`tab-button ${index === 0 ? 'active' : ''}`} onClick={changeTab}>
                                 {item.partOfSpeech}
                             </button>
-
-                            <div className='tab-content'>
-                                {/* {item.definitions[0].definition} */}
-                            </div>
                         </div>
-                    )
+                    </div>
                 })
             }
         </div>
