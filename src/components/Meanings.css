@@ -42,4 +42,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: var(--m-block);
+}
+.tab-content{
+  margin-top: 0.5rem;
+  letter-spacing: 1px;
 }

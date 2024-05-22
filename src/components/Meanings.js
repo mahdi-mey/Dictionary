@@ -26,6 +26,7 @@ export default function Meanings({ meanings }) {
                             {item.definitions[0].definition}
                         </div>
                     }
+                    return null
                 })}
             </div>
 
