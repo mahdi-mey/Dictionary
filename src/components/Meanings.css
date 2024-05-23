@@ -5,8 +5,10 @@
 
 .button-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: baseline;
-  gap: 1rem;
+  margin: var(--m-block);
+  gap: 0.5rem 1rem;
 }
 
 .tab-button {
@@ -14,7 +16,6 @@
   gap: 0.5rem;
   color: var(--color2);
   cursor: pointer;
-  margin: var(--m-block);
   justify-content: start;
   background-color: transparent;
   outline: none;
@@ -47,4 +48,9 @@
 .tab-content{
   margin-top: 0.5rem;
   letter-spacing: 1px;
+}
+@media only screen and (max-width: 500px) {
+  .button-container{
+    gap: 0.4rem 0.6rem;
+  }
 }

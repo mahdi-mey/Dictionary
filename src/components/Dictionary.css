@@ -90,37 +90,3 @@
 .button-and-icon:focus-within {
   background-color: var(--dark-blue);
 }
-
-/* or h1 tag */
-.selfWord {
-  color: var(--color1);
-  margin: var(--m-block);
-}
-
-/* pronunciation and read icon */
-.info {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--color1);
-}
-
-.pointer {
-  cursor: pointer;
-}
-
-.selected {
-  color: var(--color1);
-  background-color: var(--color2);
-}
-
-.definitions {
-  color: var(--color1);
-  margin: var(--m-block);
-}
-
-.h4 {
-  color: var(--color3);
-  font-weight: 560;
-  margin-block: 1rem;
-}
