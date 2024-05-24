@@ -91,3 +91,11 @@
 .button-and-icon:focus-within {
   background-color: var(--dark-blue);
 }
+.error {
+  margin-top: 1.5rem;
+  color: #160202;
+  background-color: rgb(250 45 45);
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px 0;
+}
