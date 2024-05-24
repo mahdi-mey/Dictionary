@@ -3,8 +3,6 @@ import React, { useRef } from 'react'
 import '../components/Audio.css'
 
 export default function Audio({ phonetic }) {
-    console.log('Audio component ran')
-
     const audioRef = useRef(null)
 
     function playAudio(audioSrc) {

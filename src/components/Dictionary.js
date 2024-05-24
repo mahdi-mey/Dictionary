@@ -19,9 +19,8 @@ export default function Dictionary() {
 
     async function searchWord(e) {
         e.preventDefault()
-        console.log('inside fetch function')
         if (!inputValue) return
-
+        
         try {
             setIsLoading(true)
             const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${inputValue}`)
@@ -53,7 +52,7 @@ export default function Dictionary() {
         <div className="container">
             <form className="input-container" onSubmit={searchWord}>
                 <input type="text" autoComplete="off" id="wordInp" placeholder="Enter A Word" spellCheck="false" autoFocus onChange={handelChange} />
-                <div className='button-and-icon' disabled={isLoading}>
+                <div className='button-and-icon' disabled={isLoading} onClick={searchWord}>
                     <button className="submitBtn" type="submit">Serach</button>
                     <VscSearch className='search-icon' />
                 </div>

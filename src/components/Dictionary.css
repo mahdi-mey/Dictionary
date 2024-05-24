@@ -73,6 +73,7 @@
   opacity: 0;
   transition: all 0.5s ease;
   font-size: 0.9em;
+  pointer-events: none;
 }
 
 .button-and-icon:hover .search-icon,
