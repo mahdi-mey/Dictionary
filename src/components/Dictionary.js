@@ -6,6 +6,8 @@ import Meanings from './Meanings'
 import Loader from './Loader'
 import WordDetails from './WordDetails'
 
+import searchWord from '../services/fetchWord'
+
 export default function Dictionary() {
     const [inputValue, setInputValue] = useState('')
     const [wordInfo, setWordInfo] = useState(null)
@@ -18,33 +20,6 @@ export default function Dictionary() {
         setInputValue(event.target.value)
     }
 
-    async function searchWord(e) {
-        e.preventDefault()
-        if (!inputValue) return
-
-        try {
-            setIsLoading(true)
-            setErrorMessage('')
-            const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${inputValue}`)
-            if (response.status === 200) {
-                const data = await response.json()
-                setWordInfo(data)
-                setInputValue('')
-            }
-            else {
-                // Handle errors
-                const errorData = await response.json()
-                setErrorMessage(errorData.message || 'An error occurred. Please try again later.');
-            }
-        }
-        catch (err) {
-            setErrorMessage('An error occurred. Please try again later.');
-        }
-        finally {
-            setIsLoading(false)
-        }
-    }
-
     useEffect(() => {
         if (wordInfo) {
             audioRef.current = document.getElementById('audio')
@@ -53,9 +28,9 @@ export default function Dictionary() {
 
     return (
         <div className="container">
-            <form className="input-container" onSubmit={searchWord}>
+            <form className="input-container" onSubmit={(e) => searchWord(e, inputValue, setWordInfo, setIsLoading, setErrorMessage, setInputValue)}>
                 <input type="text" autoComplete="off" id="wordInp" placeholder="Enter A Word" spellCheck="false" autoFocus onChange={handleChange} />
-                <div className='button-and-icon' disabled={isLoading} onClick={searchWord}>
+                <div className='button-and-icon' disabled={isLoading} onClick={(e) => searchWord(e, inputValue, setWordInfo, setIsLoading, setErrorMessage, setInputValue)}>
                     <button className="submitBtn" type="submit">Search</button>
                     <VscSearch className='search-icon' />
                 </div>
