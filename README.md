@@ -19,3 +19,5 @@ Installation
 2. Play the pronunciation voice by clicking on the corresponding icon
 3. Explore the word details by navigating through the different tabs for various word categories
 4. Enjoy learning and expanding your vocabulary with this interactive dictionary app 
+
+[View Project Demo](https://mahdi-mey.github.io/Dictionary/)
