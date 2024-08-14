@@ -1,5 +1,5 @@
 .container {
-  width: clamp(300px, 50%, 60%);
+  width: 50%;
 
   background: rgba(255, 248, 248, 0.14);
   border-radius: var(--main-raius);
@@ -10,6 +10,7 @@
   padding: 20px;
   position: relative;
 }
+
 .input-container {
   position: relative;
   padding: 10px;
@@ -98,4 +99,20 @@
   text-align: center;
   border-radius: 6px;
   padding: 10px 0;
+}
+@media (max-width: 768px) {
+  .container{
+    width: 70%;
+  }
+}
+@media (max-width: 425px) {
+  .container{
+    width: 90%;
+  }
+  #wordInp{
+    font-size: 16px;
+  }
+  .error{
+    font-size: 1rem;
+  }
 }
