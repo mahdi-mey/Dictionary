@@ -108,6 +108,7 @@
 @media (max-width: 425px) {
   .container{
     width: 90%;
+    top: -10%;
   }
   #wordInp{
     font-size: 16px;
